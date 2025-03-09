@@ -3,8 +3,13 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
   namespace :api do
-    get 'hello', to: 'hello#index'
+    namespace :v1 do
+      mount_devise_token_auth_for 'User', at: 'auth'
+      resources :scores, only: [:create]
+
+    end
   end
 
 end

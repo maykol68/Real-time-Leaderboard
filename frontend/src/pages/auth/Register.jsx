@@ -1,5 +1,5 @@
 import { useState } from "react";
-import api from "../utils/api";
+import api from "../../utils/api";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -11,7 +11,6 @@ const Register = () => {
     e.preventDefault();
     try {
       const res = await api.post("/auth", {
-        // 🔥 Ruta corregida
         email,
         password,
         password_confirmation: passwordConfirm,

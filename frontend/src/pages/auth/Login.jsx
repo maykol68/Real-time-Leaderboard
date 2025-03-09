@@ -1,5 +1,5 @@
 import { useState } from "react";
-import api from "../utils/api";
+import api from "../../utils/api";
 
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState("");
@@ -52,7 +52,6 @@ const Login = ({ onLogin }) => {
         <h2 className="text-2xl font-bold text-center mb-4">Iniciar Sesión</h2>
         <hr className="pb-4" />
 
-        {/* Mostrar errores */}
         {error && <p className="text-red-500 text-center">{error}</p>}
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
