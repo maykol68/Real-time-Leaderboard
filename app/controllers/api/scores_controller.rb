@@ -1,6 +1,11 @@
 class ScoresController < ApplicationController
     before_action :authenticate_user! # Asegura que el usuario esté autenticado si usas Devise
-  
+
+    def index
+        scores = Score.where(user: current_user)
+        render json: scores
+    end
+    
     def create
       score = current_user.scores.new(score_params)
   
