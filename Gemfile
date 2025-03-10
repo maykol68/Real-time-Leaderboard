@@ -51,4 +51,5 @@ gem 'rack-cors'
 
 # devise
 gem 'devise'
-gem 'devise_token_auth'
+
+gem "devise_token_auth", "~> 1.2"

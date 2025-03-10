@@ -343,7 +343,7 @@ DEPENDENCIES
   brakeman
   debug
   devise
-  devise_token_auth
+  devise_token_auth (~> 1.2)
   kamal
   puma (>= 5.0)
   rack-cors

@@ -12,9 +12,9 @@ const Dashboard = () => {
       const res = await api.post("/scores", {
         score: {
           game: game,
-          points: parseInt(points, 10), // Convertir a número
+          points: parseInt(points, 10),
         },
-      });   
+      });
 
       setMessage({ text: "Puntaje enviado con éxito", type: "success" });
       setGame("");
