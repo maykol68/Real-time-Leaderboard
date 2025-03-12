@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :scores, only: [:create, :index] 
+      resources :games, only: [:index] 
+
 
     end
   end

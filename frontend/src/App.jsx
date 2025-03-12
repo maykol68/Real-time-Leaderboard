@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
-import Dashboard from "./pages/Home";
-import Header from "./pages/components/Header";
+import Home from "./pages/Home";
+import Header from "./pages/components/layout/Header";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
@@ -16,16 +16,21 @@ function App() {
   };
 
   return (
-    <div className="w-full max-h-screen flex flex-col items-center bg-gray-100">
-      {/* ✅ Agregamos el Header solo si el usuario está autenticado */}
+    <div className="w-full min-h-screen bg-blue-300 flex flex-col">
+      {/* ✅ Header solo si está autenticado */}
       {isAuthenticated && <Header onLogout={handleLogout} />}
 
-      <div className="w-full h-screen flex justify-center items-center">
-        <div className="bg-gray-100 w-1/2 h-1/2 text-center p-6">
-          {isAuthenticated ? (
-            <Dashboard />
-          ) : (
-            <div>
+      {/* Contenido principal */}
+      <div className="flex flex-1">
+        {isAuthenticated ? (
+          // 🔹 Dashboard ocupa toda la pantalla sin centrarse
+          <div className="flex-1 p-6">
+            <Home />
+          </div>
+        ) : (
+          // 🔹 Contenedor centrado para Login / Registro
+          <div className="w-full flex justify-center items-center">
+            <div className="bg-white shadow-lg rounded-lg p-6 w-96 text-center">
               {showLogin ? (
                 <Login onLogin={() => setIsAuthenticated(true)} />
               ) : (
@@ -35,15 +40,15 @@ function App() {
               {/* ✅ Botón para cambiar entre Login y Registro */}
               <button
                 onClick={() => setShowLogin(!showLogin)}
-                className="p-6 text-blue-500 hover:underline"
+                className="mt-4 text-blue-500 hover:underline"
               >
                 {showLogin
                   ? "¿No tienes cuenta? Regístrate"
                   : "¿Ya tienes cuenta? Inicia sesión"}
               </button>
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -6,8 +6,8 @@ module Api
       before_action :authenticate_user!
 
       def index
-        scores = Score.where(user: current_user)
-        render json: scores
+        scores = Score.includes(:user, :game).all
+        render json: scores, include: [:user, :game]
       end
 
       def create
@@ -23,7 +23,7 @@ module Api
       private
 
       def score_params
-        params.require(:score).permit(:game, :points)
+        params.require(:score).permit(:game_id, :points)
       end
     end
   end

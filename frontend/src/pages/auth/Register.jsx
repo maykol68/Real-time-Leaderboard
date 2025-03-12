@@ -2,6 +2,7 @@ import { useState } from "react";
 import api from "../../utils/api";
 
 const Register = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
@@ -11,6 +12,7 @@ const Register = () => {
     e.preventDefault();
     try {
       const res = await api.post("/auth", {
+        name,
         email,
         password,
         password_confirmation: passwordConfirm,
@@ -48,6 +50,13 @@ const Register = () => {
         )}
 
         <form onSubmit={handleRegister} className="flex flex-col gap-4">
+          <input
+            type="text"
+            placeholder="Nombre"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
           <input
             type="email"
             placeholder="Correo"
