@@ -20,6 +20,8 @@ gem "solid_cache"
 gem "solid_queue"
 gem "solid_cable"
 
+
+
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
@@ -53,3 +55,9 @@ gem 'rack-cors'
 gem 'devise'
 
 gem "devise_token_auth", "~> 1.2"
+
+gem "turbo-rails", "~> 2.0"
+
+gem "importmap-rails", "~> 2.1"
+
+gem 'redis', '~> 4.8.0'

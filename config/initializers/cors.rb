@@ -7,11 +7,10 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins '*'
-
+    origins 'http://localhost:5173', 'http://127.0.0.1:5173'
     resource '*',
-      headers: :any,
-      expose: ["access-token", "expiry", "token-type", "uid", "client"],
-      methods: [:get, :post, :put, :patch, :delete, :options, :head]
+             headers: :any,
+             expose: ['access-token', 'expiry', 'token-type', 'uid', 'client'],
+             methods: %i[get post put patch delete options head]
   end
 end

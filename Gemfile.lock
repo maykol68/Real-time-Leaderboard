@@ -115,6 +115,10 @@ GEM
       activesupport (>= 6.1)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
+    importmap-rails (2.1.0)
+      actionpack (>= 6.0.0)
+      activesupport (>= 6.0.0)
+      railties (>= 6.0.0)
     io-console (0.8.0)
     irb (1.15.1)
       pp (>= 0.6.0)
@@ -237,6 +241,7 @@ GEM
     rake (13.2.1)
     rdoc (6.12.0)
       psych (>= 4.0.0)
+    redis (4.8.1)
     regexp_parser (2.10.0)
     reline (0.6.0)
       io-console (~> 0.5)
@@ -311,6 +316,9 @@ GEM
     thruster (0.1.11-x86_64-darwin)
     thruster (0.1.11-x86_64-linux)
     timeout (0.4.3)
+    turbo-rails (2.0.13)
+      actionpack (>= 7.1.0)
+      railties (>= 7.1.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (3.1.4)
@@ -344,16 +352,19 @@ DEPENDENCIES
   debug
   devise
   devise_token_auth (~> 1.2)
+  importmap-rails (~> 2.1)
   kamal
   puma (>= 5.0)
   rack-cors
   rails (~> 8.0.1)
+  redis (~> 4.8.0)
   rubocop-rails-omakase
   solid_cable
   solid_cache
   solid_queue
   sqlite3 (>= 2.1)
   thruster
+  turbo-rails (~> 2.0)
   tzinfo-data
 
 BUNDLED WITH
