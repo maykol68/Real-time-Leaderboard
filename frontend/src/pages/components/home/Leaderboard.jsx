@@ -96,8 +96,9 @@ const Leaderboard = () => {
       <div className="overflow-auto rounded-md border">
         <table className="w-full min-w-[400px] border-collapse">
           <thead className="bg-gray-200">
-            <tr className="text-left">
-              <th className="py-2 px-4 border">#</th>
+            <tr className="text-center">
+              <th className="py-2 px-4 border">Fecha Registro</th>
+              <th className="py-2 px-4 border">ID jugador</th>
               <th className="py-2 px-4 border">Jugador</th>
               <th className="py-2 px-4 border">Juego</th>
               <th className="py-2 px-4 border">Puntaje</th>
@@ -105,9 +106,19 @@ const Leaderboard = () => {
           </thead>
           <tbody>
             {scores.length > 0 ? (
-              scores.map((score, index) => (
+              scores.map((score) => (
                 <tr key={score.id} className="text-center odd:bg-gray-100">
-                  <td className="py-2 px-4 border">{index + 1}</td>
+                  <td className="py-2 px-4 border">
+                    {new Date(score.created_at).toLocaleDateString("es-ES", {
+                      day: "2-digit",
+                      month: "long",
+                      year: "numeric",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                      hour12: true,
+                    })}
+                  </td>
+                  <td className="py-2 px-4 border">{score.user?.id}</td>
                   <td className="py-2 px-4 border">
                     {score.user?.name || "Anónimo"}
                   </td>

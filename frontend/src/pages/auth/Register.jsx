@@ -1,5 +1,6 @@
 import { useState } from "react";
 import api from "../../utils/api";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -63,6 +64,7 @@ const Register = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+            autoComplete="username"
             required
           />
           <input
@@ -71,6 +73,7 @@ const Register = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+            autoComplete="new-password"
             required
           />
           <input
@@ -79,6 +82,7 @@ const Register = () => {
             value={passwordConfirm}
             onChange={(e) => setPasswordConfirm(e.target.value)}
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+            autoComplete="new-password"
             required
           />
           <button
@@ -88,6 +92,9 @@ const Register = () => {
             Registrarse
           </button>
         </form>
+        <button className="mt-4 text-blue-500 hover:underline">
+          <Link to="/login">¿Ya tienes cuenta? Inicia sesión</Link>
+        </button>
       </div>
     </div>
   );
