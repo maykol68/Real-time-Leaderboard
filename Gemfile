@@ -60,4 +60,4 @@ gem "turbo-rails", "~> 2.0"
 
 gem "importmap-rails", "~> 2.1"
 
-gem 'redis', '~> 4.8.0'
+gem 'redis', '~> 5.4.1'
